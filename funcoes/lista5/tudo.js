@@ -24,3 +24,13 @@ function verificaAprovacao(nota) {
 }
 verificaAprovacao(8);
 verificaAprovacao(5);
+
+function ehPar(numero) {
+    if (numero % 2 === 0) {
+        console.log("O número é par.");
+    } else {
+        console.log("O número é ímpar.");
+    }
+}
+ehPar(2734);
+
