@@ -34,3 +34,47 @@ function ehPar(numero) {
 }
 ehPar(2734);
 
+function soma(x, y) {
+    return x + y;
+}
+soma(4, 6);
+
+function calcularTroco(valorCompra, valorPago) {
+    let troco = valorPago - valorCompra;
+    if (troco < 0) {
+        console.log("Valor pago é insuficiente.");
+    } else {
+        console.log("Seu troco é: R$ ", troco);
+    }
+} 
+
+const saudacao = nome => console.log('Vida longa e prospera,', nome);
+
+saudacao('João');
+saudacao('Maria');
+saudacao('Pedro');
+
+
+
+function executarAcao(acao) {
+    if (typeof acao === "function") {
+        acao();
+    }
+}
+
+function imprimirAcao() {
+    console.log("Executando ação!");
+}
+
+executarAcao(imprimirAcao);
+
+function fazerPergunta(pergunta, respostaCorreta) {
+    let resposta = 0;
+    console.log("Qual é a capital do Brasil? ",pergunta);
+    if (resposta === respostaCorreta) {
+        console.log("Resposta correta!");
+        resposta++;
+    } else {
+        console.log("Resposta incorreta!");
+    }
+}
