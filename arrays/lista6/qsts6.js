@@ -61,3 +61,30 @@ const precosComDescontos = precosprodutos.map((preco) => {
     return preco * 0.9
 })
 console.log('Preços com desconto: ', precosComDescontos)
+
+const carrinhoCompras = [50, 100, 150, 200];
+let totalCompra = 0;
+for (let i = 0; i < carrinhoCompras.length; i++) {
+    totalCompra += carrinhoCompras[i]
+}
+
+const totalComDesconto = totalCompra * 0.8
+
+console.log('Gastos totais: ', totalCompra)
+console.log('Total com desconto: ', totalComDesconto)
+
+const tarefas = ['Lavar a louça', 'Limpar a casa', 'Fazer compras', 'Estudar']
+const valores = [true, false, true, false]
+
+const tarefasConcluidas = tarefas.filter((tarefa, indice) => {
+    return valores[indice] === true
+})
+
+const tarefasPendentes = tarefas.filter((tarefa, indice) => {
+    return valores[indice] === false
+})
+
+
+console.log('Tarefas concluídas: ', tarefasConcluidas)
+
+console.log('Tarefas pendentes: ', tarefasPendentes)
