@@ -8,3 +8,31 @@ pessoa.sobrenome = 'Silva';
 
 console.log(pessoa.nome);
 console.log(pessoa.sobrenome); 
+
+const livro = {
+    titulo: 'Hobbit',
+    autor: 'J.R.R. Tolkien',
+    paginas: 310,
+    ano: 1937
+};
+
+
+livro.publicado = true;
+livro.editora = 'HarperCollins';
+livro.idioma = [
+    'inglês',
+    'português',
+    'espanhol'
+]
+
+console.log(livro.titulo);
+console.log(livro.idioma[1]);
+
+console.log('A editora do livro é ', livro.editora);
+console.log('O livro foi publicado? ', livro.publicado);
+
+console.log('O livro tem ', livro.paginas, ' páginas');
+console.log('Quantos idiomas tem o livro? ', livro.idioma.length);
+
+console.log('O livro tem o idioma francês? ', livro.idioma.includes('francês'));
+console.log('Qual o nome do autor do livro? ', livro.autor);
