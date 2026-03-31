@@ -19,20 +19,27 @@ const livro = {
 
 livro.publicado = true;
 livro.editora = 'HarperCollins';
-livro.idioma = [
+livro.idiomas = [
     'inglês',
     'português',
     'espanhol'
 ]
 
+livro.idiomas.push('Mandarim');
+livro.idiomas.push('japonês');
+
+
 console.log(livro.titulo);
-console.log(livro.idioma[1]);
+console.log(livro.idiomas[1]);
 
 console.log('A editora do livro é ', livro.editora);
 console.log('O livro foi publicado? ', livro.publicado);
 
 console.log('O livro tem ', livro.paginas, ' páginas');
-console.log('Quantos idiomas tem o livro? ', livro.idioma.length);
+console.log('Quantos idiomas tem o livro? ', livro.idiomas.length);
 
-console.log('O livro tem o idioma francês? ', livro.idioma.includes('francês'));
+console.log('O livro tem o idioma francês? ', livro.idiomas.includes('francês'));
 console.log('Qual o nome do autor do livro? ', livro.autor);
+console.log('Livro antes: ', livro);
+
+console.log('livro antes: ', livro);
