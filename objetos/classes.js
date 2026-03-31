@@ -6,8 +6,7 @@ const pessoa = {
 
 pessoa.sobrenome = 'Silva';
 
-console.log(pessoa.nome);
-console.log(pessoa.sobrenome); 
+
 
 const livro = {
     titulo: 'Hobbit',
@@ -40,6 +39,28 @@ console.log('Quantos idiomas tem o livro? ', livro.idiomas.length);
 
 console.log('O livro tem o idioma francês? ', livro.idiomas.includes('francês'));
 console.log('Qual o nome do autor do livro? ', livro.autor);
-console.log('Livro antes: ', livro);
+
+console.log('\n');
 
 console.log('livro antes: ', livro);
+
+delete livro.paginas;
+
+console.log('Livro depois: ', livro);
+
+console.log('Autor do livro: ', livro['autor']);
+console.log('Editora: ', livro['editora']);
+
+const autor = {
+    nome: 'J.R.R. Tolkien',
+    nacionalidade: 'Britânica',
+    idade: 81,
+    livros: [livro.titulo]
+};
+
+livro.autor = autor;
+
+console.log(livro);
+
+console.log(livro.autor.nome);
+console.log(livro.autor.nacionalidade);
