@@ -46,10 +46,33 @@ console.log(lista);
 
 for (const pessoa of lista) {
     if (pessoa.idade >= 18) {
-        console.log(pessoa.nome, 'é maior de idade');
+        console.log(`${pessoa.nome} é maior de idade.`);
     }
+}
+console.log('--------------------------------------------');
+
+for (const propriedade in pessoa) {
+    console.log(`${propriedade}: ${pessoa[propriedade]}`);
 }
 
 console.log('--------------------------------------------');
 
+const usuario = {
+    nome: 'Lucas',
+    saudacao: function() {
+        console.log('Olá, meu nome é ', usuario.nome);
+    }
+}
+usuario.saudacao();
 
+console.log('--------------------------------------------');
+
+const produto = {
+    preco: 56,
+    quantidade: 10
+}
+const valorTotal = produto.preco * produto.quantidade;
+
+console.log(`Valor total do produto: R$ ${valorTotal}`);
+
+console.log('--------------------------------------------');
