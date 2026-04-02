@@ -1,6 +1,8 @@
-const readline = require('readline');
+//const readline = require('readline'); 
+// // A diferença entre as duas formas de importar o módulo readline é que a primeira usa a sintaxe CommonJS (require), enquanto a segunda usa a sintaxe ES6 (import). A sintaxe ES6 é mais moderna e é recomendada para projetos mais recentes, enquanto a sintaxe CommonJS é amplamente utilizada em projetos mais antigos ou em ambientes que não suportam ES6.
+import { createInterface } from 'readline';
 
-const rl = readline.createInterface({
+const rl = createInterface({
     input: process.stdin,
     output: process.stdout    
 });
