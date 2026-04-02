@@ -2,9 +2,9 @@
 //
 //Aqui está um exemplo de como usar o módulo 'readline' para ler a entrada do usuário no terminal:
 
-const readline = require('readline');
+import { createInterface } from 'readline';
 
-const leitor = readline.createInterface( {
+const leitor = createInterface( {
     input: process.stdin,
     output: process.stdout
 })
