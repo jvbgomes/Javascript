@@ -1,10 +1,6 @@
-//'readline' é um módulo do Node.js que fornece uma interface para ler dados de um fluxo de leitura (como o processo de entrada padrão) um linha de cada vez. Ele é comumente usado para criar interfaces de linha de comando interativas.
-//
-//Aqui está um exemplo de como usar o módulo 'readline' para ler a entrada do usuário no terminal:
+const readline = require('readline')
 
-import { createInterface } from 'readline';
-
-const leitor = createInterface( {
+const leitor = readline.createInterface( {
     input: process.stdin,
     output: process.stdout
 })
