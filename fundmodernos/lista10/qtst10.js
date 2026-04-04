@@ -118,6 +118,9 @@ console.log('-----------------------------\n');
 //function Livro(titulo, autor) {
 //    this.titulo = titulo;
 //    this.autor = autor;
+//    this.descrever = function() {
+//      return 'O livro ' + this.titulo + ' é uma obra de ' + this.autor;
+//    }
 //}
 class Livro {
     constructor(titulo, autor) { //o constructor é um método especial que é chamado qnd criamos uma nova instância da classe.
@@ -127,6 +130,10 @@ class Livro {
 
     apresentar() {
         console.log(`O livro ${this.titulo} foi escrito por ${this.autor}`);
+    }
+
+    descrever() {
+        return 'O livro ' + this.titulo + ' é uma obra de ' + this.autor; 
     }
 }
 
@@ -138,3 +145,6 @@ console.log(livro2);
 
 livro1.apresentar();
 livro2.apresentar();
+
+console.log(livro1.descrever());
+console.log(livro2.descrever()); //método descrever é mais flexível, pois você pode guardar em uma variavel ou usar em outras partes do código, enquanto o método apresentar apenas exibe a mensagem no console.
