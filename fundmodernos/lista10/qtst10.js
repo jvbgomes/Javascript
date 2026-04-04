@@ -81,3 +81,14 @@ function saudacao(nome) {
 
 console.log(saudacao('João'));
 console.log(saudacao());
+
+//forma alternativa
+console.log('\n');
+
+function novaSaudacao(nome) {
+    return nome != null ? `Olá, ${nome}` : 'Olá, visitante';
+}
+console.log(novaSaudacao('Maria'));
+console.log(novaSaudacao());
+
+
