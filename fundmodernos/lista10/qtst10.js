@@ -110,3 +110,31 @@ console.log('-----------------------------\n');
 
 //import {somar} from './somar.js';
 console.log(`O resultado da soma foi ${somar(2, 6)}`);
+
+console.log('\n')
+console.log('-----------------------------\n');
+
+
+//function Livro(titulo, autor) {
+//    this.titulo = titulo;
+//    this.autor = autor;
+//}
+class Livro {
+    constructor(titulo, autor) { //o constructor é um método especial que é chamado qnd criamos uma nova instância da classe.
+        this.titulo = titulo;
+        this.autor = autor;
+    }
+
+    apresentar() {
+        console.log(`O livro ${this.titulo} foi escrito por ${this.autor}`);
+    }
+}
+
+const livro1 = new Livro('Dom Casmurro', 'Machado De Assis.');
+const livro2 = new Livro('O Hobbit', 'J.R.R. Tolkien.');
+
+console.log(livro1);
+console.log(livro2);
+
+livro1.apresentar();
+livro2.apresentar();
