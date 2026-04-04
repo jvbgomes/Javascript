@@ -100,3 +100,13 @@ console.log(hoje);
 console.log('Dia: ', hoje.getDay());
 console.log('Mês: ', hoje.getMonth() + 1);
 console.log('Ano: ', hoje.getFullYear());
+
+console.log('\n')
+console.log('-----------------------------\n');
+
+ export function somar(a, b) {
+    return a + b;
+}
+
+//import {somar} from './somar.js';
+console.log(`O resultado da soma foi ${somar(2, 6)}`);
