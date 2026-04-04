@@ -91,4 +91,12 @@ function novaSaudacao(nome) {
 console.log(novaSaudacao('Maria'));
 console.log(novaSaudacao());
 
+console.log('\n');
+console.log('-----------------------------\n');
 
+const hoje = new Date();
+console.log(hoje);
+
+console.log('Dia: ', hoje.getDay());
+console.log('Mês: ', hoje.getMonth() + 1);
+console.log('Ano: ', hoje.getFullYear());
