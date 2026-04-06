@@ -81,3 +81,13 @@ switch (diaSemana) {
         console.log('Dia da semana inválido.');
         break;    
 }
+
+// Se user for admin --> Login bem sucedido.
+// Se user for moderador --> login bem sucedido.
+// Se user for visitante --> Usuario invalido.
+
+const user = 'moderador';
+
+const loginStatus = (user === 'admin' || user === 'moderador') ? 'Login bem-sucedido' : 'Usuário inválido';
+
+console.log(loginStatus);
