@@ -91,3 +91,14 @@ const user = 'moderador';
 const loginStatus = (user === 'admin' || user === 'moderador') ? 'Login bem-sucedido' : 'Usuário inválido';
 
 console.log(loginStatus);
+
+//O suco so pode ser feito com 'laranja' ou 'abacaxi'. Qualquer outra fruta que nao seja 'laranja' ou 'abacaxi' deve gerar uma mensagem de erro, informando que a fruta não é compatível.
+
+const fruta = 'seriguela';
+
+if (fruta === 'laranja' || fruta === 'abacaxi') {
+    console.log(`Suco de ${fruta} preparado com sucesso!`);
+} else {
+    console.log(`Erro: A fruta "${fruta}" não é compatível para fazer suco. Por favor, escolha entre "laranja" ou "abacaxi".`);
+}
+
