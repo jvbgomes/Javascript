@@ -102,3 +102,44 @@ if (fruta === 'laranja' || fruta === 'abacaxi') {
     console.log(`Erro: A fruta "${fruta}" não é compatível para fazer suco. Por favor, escolha entre "laranja" ou "abacaxi".`);
 }
 
+const carrinhoVazio = true;
+
+if (carrinhoVazio === false) {
+    console.log('Compra finalizada com sucesso!');
+} else {
+    console.log('Erro: O carrinho está vazio. Por favor, adicione itens ao carrinho antes de finalizar a compra.');
+}
+
+const statusPedido = 'pendente';
+
+switch (statusPedido) {
+    case 'aprovado':
+        console.log('Pedido aprovado. Em breve será enviado para entrega.');
+        break;
+    case 'recusado':
+        console.log('Pedido recusado. Por favor, entre em contato com o suporte para mais informações.');
+        break;
+    case 'pendente':
+        console.log('Pedido pendente. Estamos processando seu pedido, por favor aguarde.');
+        break;
+    default:
+        console.log('Status do pedido desconhecido. Por favor, verifique o status e tente novamente.');
+        break;            
+}
+
+const pontos = 72;
+const vidas = 1;
+
+if (pontos <= 50 && vidas > 0) {
+    console.log('Jogador eliminado! Tente novamente.');
+} else if (pontos > 50 && pontos <= 100 && vidas > 0) {
+    console.log('Jogador avançou para a próxima fase!');
+} else {
+    console.log('Você é um jogador lendário! Não tomou dano e tem pontos sobrando.');
+}
+
+const bateria = 54;
+
+const statusBateria = (bateria < 20) ? 'Crítica' : (bateria >= 20 && bateria <= 80) ? 'Moderada' : 'Cheia';
+
+console.log(`Status da bateria: ${statusBateria}`);
