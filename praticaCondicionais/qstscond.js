@@ -41,3 +41,43 @@ if (idadePessoa >= 18) {
 } else {
     console.log('Idade inválida');
 }
+
+// De segunda a sexta --> Das 9 hrs as 18 hrs. No sabado e domingo --> horario especial --> das 10 hrs as 14 hrs
+// controlar o funcionamento de uma loja com base nos dias da semana.
+// domingo = 0, segunda = 1, terça = 2, quarta = 3, quinta = 4, sexta = 5, sábado = 6
+
+const diaSemana = 6;
+
+if (diaSemana >= 1 && diaSemana <= 5) {
+    console.log('A loja está aberta das 9 hrs às 18 hrs.');
+} else if (diaSemana === 0 || diaSemana === 6) {
+    console.log('A loja está aberta em horário especial das 10 hrs às 14 hrs.');
+} else {
+    console.log('Dia da semana inválido.');
+}
+
+//Ou podemos fazer por switch case
+
+switch (diaSemana) {
+    case 1:
+        console.log('A loja está aberta das 9 hrs às 18 hrs.');
+        break;
+    case 2:
+        console.log('A loja está aberta das 9 hrs às 18 hrs.');
+        break;
+    case 3:
+        console.log('A loja está aberta das 9 hrs às 18 hrs.');
+        break;
+    case 4:
+        console.log('A loja está aberta das 9 hrs às 18 hrs.');
+        break;
+    case 5:
+        console.log('A loja está aberta das 9 hrs às 18 hrs.');
+        break;
+    case 6:
+        console.log('A loja está aberta em horário especial das 10 hrs às 14 hrs.');
+        break;
+    default:
+        console.log('Dia da semana inválido.');
+        break;    
+}
