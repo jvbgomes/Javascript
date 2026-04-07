@@ -99,3 +99,58 @@ do {
 } while (numbRandom2 % 2 !== 0);
 
 console.log(`O numero ${numbRandom2} é par!`);
+
+console.log('\n')
+console.log('----------------------------------------------------------------')
+
+//criar um laco que recebe um texto e verifica se é um palíndromo --> Um palíndromo é uma palavra, frase ou número que permanece igual quando lida de trás para frente, desconsiderando espaços, pontuação e diferenças entre maiúsculas e minúsculas. 
+//imprimir no console o texto, informando se é ou não um palíndromo
+
+const texto = 'arara';
+const texto2 = 'luz azul';
+
+function verificaPalindromo(texto) {
+    let textoInvertido = '';
+    for (let i = texto.length - 1; i >= 0; i--) {
+        textoInvertido += texto[i];
+    }
+    if (texto === textoInvertido) {
+        console.log(`O texto "${texto}" é um palíndromo!`);
+    } else {
+        console.log(`O texto "${texto}" não é um palíndromo!`);
+    }
+}
+
+verificaPalindromo(texto);
+verificaPalindromo(texto2);
+//0 1 2 3 4
+//A R A R A 
+//texto.length - 1 = 4; i >=0; i--
+//textoInvertido = ' + texto[4] = 'a'
+//textoInvertido = 'a' + texto[3] = 'ar'
+//textoInvertido = 'ar' + texto[2] = 'ara'
+//textoInvertido = 'ara' + texto[1] = 'arar'
+//textoInvertido = 'arar' + texto[0] = 'arara'
+
+//tratando espacos e maiusculas/minusculas
+
+console.log('\n')
+console.log('----------------------------------------------------------------')
+
+function verificaPalindromo2(texto) {
+    const textoLimpo = texto.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    let textoInvertido2 = '';
+    for (let i = textoLimpo.length - 1; i >= 0; i--) {
+        textoInvertido2 += textoLimpo[i];
+    }
+    if (textoLimpo === textoInvertido2) {
+        console.log(`O texto "${texto}" é um palíndromo!`);
+    } else {
+        console.log(`O texto "${texto}" não é um palíndromo!`);
+    }
+}
+
+verificaPalindromo2(texto2);
+verificaPalindromo2(texto);
+
+    //.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() significa que estamos removendo todos os caracteres que não são letras ou números e convertendo o texto para minusculas. Isso é útil para garantir que a verificação de palíndromo seja feita de forma consistente, ignorando espaços, pontuação e diferenças entre maiúsculas e minúsculas.
