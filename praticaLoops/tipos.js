@@ -153,4 +153,5 @@ function verificaPalindromo2(texto) {
 verificaPalindromo2(texto2);
 verificaPalindromo2(texto);
 
-    //.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() significa que estamos removendo todos os caracteres que não são letras ou números e convertendo o texto para minusculas. Isso é útil para garantir que a verificação de palíndromo seja feita de forma consistente, ignorando espaços, pontuação e diferenças entre maiúsculas e minúsculas.
+//.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() significa que estamos removendo todos os caracteres que não são letras ou números e convertendo o texto para minusculas. Isso é útil para garantir que a verificação de palíndromo seja feita de forma consistente, ignorando espaços, pontuação e diferenças entre maiúsculas e minúsculas.
+
