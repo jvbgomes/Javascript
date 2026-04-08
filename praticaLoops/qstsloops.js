@@ -62,3 +62,59 @@ for (let i = 1; i <= 20; i++) {
     console.log(i);
 }
 
+const totalDias = 10;
+let money = 0;
+
+for (let dia = 1; dia <= totalDias; dia++) {
+    money += dia;
+}
+console.log(`Ao final de ${totalDias} dias, você terá economizado R$${money}!`);
+
+console.log('\n')
+console.log('----------------------------------------------------------------')
+
+const tempoMinimo = 5;
+const temperaturaIdealAlcancadaEm = 3;
+
+let segundos = 0;
+
+do {
+    segundos++;
+    console.log(`Aquecendo... segundo ${segundos}`);
+
+    if (segundos === temperaturaIdealAlcancadaEm) {
+        console.log('Temperatura ideal atingida.');
+    }
+
+} while (segundos < tempoMinimo);
+
+console.log(`Tempo total de aquecimento: ${segundos} segundos`);
+//for (let segundos = 1; segundos <= tempoMinimo; segundos++) {
+//    console.log(`Aquecendo... segundo ${segundos}`);
+//    if (segundos === temperaturaIdealAlcancadaEm) {
+//        console.log('Temperatura ideal atingida.');
+//    }
+//}
+console.log('Tempo total de aquecimento: 5 segundos.');
+
+console.log('\n')
+console.log('----------------------------------------------------------------')    
+
+const caixas = [12, -1, 8, 0, -5, 3, 7, 14];
+const maxCaixas = 5;
+let caixasProcessadas = 0;
+
+do {
+    for (let i = 0; i < caixas.length; i++) {
+        if (caixas[i] >= 0) {
+            console.log(`Caixa processada: ${caixas[i]}`)
+            caixasProcessadas++;
+            if (caixasProcessadas == maxCaixas) {
+                console.log('Limite de caixas processadas atingido!')
+                break;
+            }
+        } else {
+            console.log(`Caixa danificada, ignorada.`)
+        }
+    }
+} while (caixasProcessadas < maxCaixas);
