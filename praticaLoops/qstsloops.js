@@ -147,18 +147,18 @@ console.log("----------------------------------------------------------------");
 const tentativas = ['1234', 'admin', 'letmein', 'senha123', 'secreto'];
 const senhaCorreta = 'secreto';
 
-let i = 0;
+let j = 0;
 let acessoLiberado = false;
 
-while (i < tentativas.length && i < 3) {
-    if (tentativas[i] === senhaCorreta) {
+while (j < tentativas.length && j < 3) {
+    if (tentativas[j] === senhaCorreta) {
         console.log('Acesso permitido!');
         acessoLiberado = true;
         break;
     } else {
-        console.log(`Tentativa ${i + 1} inválida.`);
+        console.log(`Tentativa ${j + 1} inválida.`);
     }
-    i++;
+    j++;
 }
 
 if (!acessoLiberado) {
