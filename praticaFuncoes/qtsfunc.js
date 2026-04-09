@@ -24,3 +24,24 @@ const calcularMedia = (n1, n2) => {
 }
 
 console.log(calcularMedia(8, 10));
+
+//function verificarParidade(numero) {
+//    if (numero % 2 === 0) {
+//        console.log(`O número ${numero} é par.`);
+//    } else {
+//        console.log(`O número ${numero} é ímpar.`);
+//    }
+//}
+const verificarParidade = numero => {
+    if (numero % 2 === 0) {
+        return `O número ${numero} é par.`;
+    } else {
+        return `O número ${numero} é ímpar.`;
+    }
+}
+console.log(verificarParidade(4));
+console.log(verificarParidade(7));
+
+const verifParidade = num => num % 2 === 0 ? `O número ${num} é par.` : `O número ${num} é ímpar.`;
+console.log(verifParidade(9));
+console.log(verifParidade(22));
