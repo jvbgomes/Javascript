@@ -95,3 +95,19 @@ console.log('\n');
 console.log(processarPedido('Carlos', 'vip', mensagemPersonalizada));
 console.log('\n');
 console.log(processarPedido('Ana', 'comum', mensagemPersonalizada)); 
+
+console.log('\n');
+console.log('---------------------------------------');
+
+
+function mostrarResposta(resposta) {
+    setTimeout(() => {
+        console.log(resposta);
+    }, 3000);
+}
+
+function responderUsuario(nome, mostrarResposta) {
+    return mostrarResposta(`Olá, ${nome}! Aqui está a resposta para a sua dúvida.`);
+}
+
+(responderUsuario('João', mostrarResposta));
