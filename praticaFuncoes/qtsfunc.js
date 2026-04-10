@@ -111,3 +111,22 @@ function responderUsuario(nome, mostrarResposta) {
 }
 
 (responderUsuario('João', mostrarResposta));
+
+console.log('\n');
+
+const mensPersonalizada = (mensagem) => `${mensagem}`;
+
+function avaliarDesempenho(pontuacao, mensPersonalizada) {
+    if (pontuacao >= 70) {
+        return mensPersonalizada(`Parabéns! Você foi aprovado com uma pontuação de ${pontuacao}.`);
+    } else if (pontuacao >= 50 && pontuacao < 70) {
+        return mensPersonalizada(`Precisa de reforço! Sua pontuação é de ${pontuacao}.`);
+    } else {
+        return mensPersonalizada(`Você foi reprovado!! Sua pontuação foi de ${pontuacao}.`);
+    }
+}
+
+console.log(avaliarDesempenho(85, mensPersonalizada));
+console.log(avaliarDesempenho(65, mensPersonalizada));
+console.log(avaliarDesempenho(45, mensPersonalizada));  
+
