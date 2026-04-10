@@ -114,19 +114,50 @@ function responderUsuario(nome, mostrarResposta) {
 
 console.log('\n');
 
-const mensPersonalizada = (mensagem) => `${mensagem}`;
+//const mensPersonalizada = (mensagem) => mensagem;
+//
+//function avaliarDesempenho(pontuacao, mensPersonalizada) {
+//    if (pontuacao >= 70) {
+//        console.log(`Pontuação: ${pontuacao}`);
+//        return mensPersonalizada(`Parabéns! Você foi aprovado!`);
+//    } else if (pontuacao >= 50) {
+//        console.log(`Pontuação: ${pontuacao}`);
+//        return mensPersonalizada(`Precisa de reforço!`);
+//    } else {
+//        console.log(`Pontuação: ${pontuacao}`);
+//        return mensPersonalizada(`Você foi reprovado!`);
+//    }
+//}
+//
+//console.log(avaliarDesempenho(85, mensPersonalizada));
+//console.log(avaliarDesempenho(65, mensPersonalizada));
+//console.log(avaliarDesempenho(45, mensPersonalizada));  
 
-function avaliarDesempenho(pontuacao, mensPersonalizada) {
+function avaliarDesempenho(pontuacao, callback) {
+    let status = "";
+ 
     if (pontuacao >= 70) {
-        return mensPersonalizada(`Parabéns! Você foi aprovado com uma pontuação de ${pontuacao}.`);
-    } else if (pontuacao >= 50 && pontuacao < 70) {
-        return mensPersonalizada(`Precisa de reforço! Sua pontuação é de ${pontuacao}.`);
+        status = "aprovado";
+    } else if (pontuacao >= 50) {
+        status = "reforco";
     } else {
-        return mensPersonalizada(`Você foi reprovado!! Sua pontuação foi de ${pontuacao}.`);
+        status = "reprovado";
+    }
+ 
+    callback(pontuacao, status);
+}
+ 
+function gerarMensagem(pontuacao, status) {
+    console.log(`Pontuação: ${pontuacao}`);
+ 
+    if (status === "aprovado") {
+        console.log("Parabéns! Você foi aprovado!");
+    } else if (status === "reforco") {
+        console.log("Atenção! Você precisa de reforço.");
+    } else {
+        console.log("Infelizmente, você foi reprovado. Tente novamente.");
     }
 }
-
-console.log(avaliarDesempenho(85, mensPersonalizada));
-console.log(avaliarDesempenho(65, mensPersonalizada));
-console.log(avaliarDesempenho(45, mensPersonalizada));  
+ 
+avaliarDesempenho(82, gerarMensagem);
 
