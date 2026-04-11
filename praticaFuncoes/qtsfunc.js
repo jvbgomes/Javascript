@@ -228,3 +228,18 @@ function exibirResultado(pessoaEscolhida, avaliaPontuacao) {
 
 const pessoaSorteada = nomeAleatorio(pessoas);
 exibirResultado(pessoaSorteada, avaliaPontuacao);
+
+console.log('\n');
+console.log('---------------------------------------');
+
+const contagemRegressiva = (numero) => {
+    if (numero !== 0) {
+        console.log(`${numero}`);
+        return contagemRegressiva(numero - 1); //recursão para em numero - 1.
+    } else {
+        console.log("Lançamento!");
+        return; //Encerra quando numero = 0.
+    }
+}
+
+contagemRegressiva(10);
