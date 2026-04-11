@@ -101,9 +101,10 @@ console.log('---------------------------------------');
 
 
 function mostrarResposta(resposta) {
-    setTimeout(() => {
-        console.log(resposta);
-    }, 3000);
+    //setTimeout(() => {
+    //    console.log(resposta);
+    //}, 2000);
+    console.log(resposta);
 }
 
 function responderUsuario(nome, mostrarResposta) {
@@ -188,3 +189,42 @@ function exibirResumo(nomeAparelho, potencia, horasPorDia) {
 
 exibirResumo(nomeAparelho[1], 150, 24);
 exibirResumo(nomeAparelho[0], 1000, 2);
+
+console.log('\n');
+console.log('---------------------------------------');
+
+const pessoas = [ 
+    {nome: 'Carlos', pontuacao: 74}, 
+    {nome: 'Ana', pontuacao: 85}, 
+    {nome: 'João', pontuacao: 62}, 
+    {nome: 'Maria', pontuacao: 90}, 
+    {nome: 'Pedro', pontuacao: 55} 
+];
+
+const nomeAleatorio = (pessoas) => {
+    return pessoas[Math.floor(Math.random() * pessoas.length)];
+}
+
+//forEach percorre cada elemento do array pessoas e avalia a pontuação de cada um, exibindo uma mensagem personalizada com base na pontuação.
+
+const avaliaPontuacao = (pessoaEscolhida) => {
+        if (pessoaEscolhida.pontuacao >= 80) {
+            console.log(`Parabéns, ${pessoaEscolhida.nome} foi premiado!`);
+        } else if (pessoaEscolhida.pontuacao >= 50 && pessoaEscolhida.pontuacao < 80) {
+            console.log(`${pessoaEscolhida.nome} você quase conseguiu! Fique de olho nos próximos sorteios!`);
+        } else {
+            console.log(`Infelizmente, não foi dessa vez ${pessoaEscolhida.nome}. Continue participando!`);
+        }
+}
+
+function exibirResultado(pessoaEscolhida, avaliaPontuacao) {
+    console.log('Sorteando...');
+    setTimeout(() => {
+        console.log(`Participante sorteado: ${pessoaEscolhida.nome}.`);
+        console.log(`Pontuação: ${pessoaEscolhida.pontuacao}`);
+        avaliaPontuacao(pessoaEscolhida);
+    }, 2000);
+}
+
+const pessoaSorteada = nomeAleatorio(pessoas);
+exibirResultado(pessoaSorteada, avaliaPontuacao);
