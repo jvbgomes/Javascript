@@ -161,3 +161,30 @@ function gerarMensagem(pontuacao, status) {
  
 avaliarDesempenho(82, gerarMensagem);
 
+console.log('\n');
+console.log('---------------------------------------');
+
+const nomeAparelho = ['Fogão', 'Geladeira', 'Micro-ondas', 'Máquina de lavar'];
+
+const calcularConsumo = (potencia, horasPorDia) => {
+    const consumo = (potencia * horasPorDia * 30) / 1000;
+    return consumo;
+}
+
+const classificarConsumo = (consumo) => {
+    if (consumo < 50) {
+        return 'Baixo consumo';
+    } else if (consumo >= 50 && consumo < 199) {
+        return 'Consumo moderado';
+    } else {
+        return 'Alto consumo';
+    }
+}
+
+function exibirResumo(nomeAparelho, potencia, horasPorDia) {
+    const consumo = calcularConsumo(potencia, horasPorDia);
+    return console.log(`${nomeAparelho} tem consumo de ${consumo.toFixed(2)} kWh/mês e é classificado como ${classificarConsumo(consumo)}.`);
+}
+
+exibirResumo(nomeAparelho[1], 150, 24);
+exibirResumo(nomeAparelho[0], 1000, 2);
