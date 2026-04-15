@@ -1,10 +1,10 @@
-//const arrNumeros = [1, 2, 3, 4, 5];
+const arrNumeros = [1, 2, 3, 4, 5];
 //
-//const arrMisto = [5, true, 'texto'];
+const arrMisto = [5, true, 'texto'];
 //
-//const arrArrays = [[1, 2], ['a', 'b', 'c'], [true, false]];
+const arrArrays = [[1, 2], ['a', 'b', 'c'], [true, false]];
 //
-//const arrObjetos = [{a: 1}, {b: 2}, {c: 3}];
+const arrObjetos = [{a: 1}, {b: 2}, {c: 3}];
 
 //ARRAY
 
