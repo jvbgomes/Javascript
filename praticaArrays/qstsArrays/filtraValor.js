@@ -16,6 +16,7 @@ autorizados.forEach(p => {
 console.log(`Lista de aprovados: [${autorizados.map(p => p.nome).join(", ")}]`);
 
 // VARIAÇÃO COM FILTER E MAP -
+console.log("\nVariação com filter e map:\n");
 
 const autorizados2 = participantes.filter(p => {
     p.idade >= 18 ? console.log(`Acesso liberado para: ${p.nome}`) : false;
