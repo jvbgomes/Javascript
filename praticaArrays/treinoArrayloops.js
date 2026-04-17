@@ -1,4 +1,3 @@
-                    //12     30
 function criaArrNum(inicio, fim) {
     const arr = [];
     let elemento = inicio;
