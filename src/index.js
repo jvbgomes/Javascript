@@ -9,7 +9,7 @@ const link = arquivePath[2];
 //});
 
 fs.readFile(link, 'utf-8', (err, data) => {
-    breakLines(data);
+    breakInLines(data);
     //duplicatedWords(data);
 });
 
@@ -17,13 +17,18 @@ fs.readFile(link, 'utf-8', (err, data) => {
 //contar as ocorrencias
 //montar um objeto com o resultado
 
-function breakLines(data) {
+function breakInLines(data) {
     const lines = data.toLowerCase().split('\n');
-    const count = lines.map(lines => {
-        return duplicatedWords(lines);
+    
+    const count = lines.flatMap((line) => {
+        if (!line) return [];
+        return duplicatedWords(line);
     })
     console.log(count);
 }
+
+// flatMap = map + flat: transforma cada item e achata o resultado num array só. É mais perfomático.
+//ex: [[1, 2], [3, 4]].flatMap(x => x) --> [1, 2, 3, 4]
 
 //expressao regular regex -> /[.,\/#!$%\^&\*;:{}=\-_`~()]/g -> remove os caracteres especiais do texto, deixando apenas as palavras. O 'g' no final indica que a substituição deve ser feita globalmente em todo o texto, e não apenas na primeira ocorrência.
 
