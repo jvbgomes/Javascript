@@ -2,6 +2,23 @@ import fs from 'fs';
 import trateErrors from './errors/functionsError.js';
 import { countWords } from './index.js';
 import { buildArquiveOutput } from './helpers.js';
+import { Command } from 'commander';
+
+const program = new Command();
+
+program
+    .version('0.0.1')
+    .option('-t, --text <string>', 'The path of the text file to be analyzed')
+    .option('-d, --destination <string>', 'The path of the destination folder to save the results')
+    .action((options) => {
+        const { text, destination } = options;
+
+        if (!text || !destination) {
+            console.error('Error: favor insert the origin and the path')
+            program.help();
+            return;
+        }
+    })
 
 // process.argv → array ['node', 'script.js', ...args], índices 0 e 1 são fixos, úteis a partir do [2]
 const arquivePath = process.argv;

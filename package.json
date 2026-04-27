@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jvbgomes/Javascript/issues"
   },
-  "homepage": "https://github.com/jvbgomes/Javascript#readme"
+  "homepage": "https://github.com/jvbgomes/Javascript#readme",
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
 }
