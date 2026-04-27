@@ -1,7 +1,7 @@
 // flatMap = map + flat: transforma cada item e achata o resultado num array só. É mais perfomático.
 //ex: [[1, 2], [3, 4]].flatMap(x => x) --> [1, 2, 3, 4]
 
-function countWords(data) {
+export function countWords(data) {
     const lines = extractLines(data);
      const count = lines.flatMap((line) => {
         if (!line) return [];
