@@ -5,12 +5,14 @@ const arquivePath = process.argv;
 const link = arquivePath[2];
 
 fs.readFile(link, 'utf-8', (err, data) => {
-    if (err) {
-        console.log('What is the error? ', err.code);
-        return;
+    try {
+        if (err) throw err;
+        countWords(data);
+    } catch (err) {
+        if (err.code === 'ENOENT') console.log('error expected');
+        else console.log('another error occurred');
     }
-    countWords(data);
-});
+}); 
 
 // flatMap = map + flat: transforma cada item e achata o resultado num array só. É mais perfomático.
 //ex: [[1, 2], [3, 4]].flatMap(x => x) --> [1, 2, 3, 4]
@@ -26,9 +28,7 @@ function countWords(data) {
 
 function extractLines(data) {
     return data.toLowerCase().split('\n');
-
 }
-
 
 //expressao regular regex -> /[.,\/#!$%\^&\*;:{}=\-_`~()]/g -> remove os caracteres especiais do texto, deixando apenas as palavras. O 'g' no final indica que a substituição deve ser feita globalmente no texto.
 
