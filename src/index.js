@@ -7,7 +7,7 @@ export function countWords(data) {
         if (!line) return [];
         return verifyDuplicatedWords(line);
     })
-    console.log(count);
+    return count;
 }
 
 function extractLines(data) {
