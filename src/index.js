@@ -1,4 +1,5 @@
 const fs = require('fs'); //importa o modulo 'fs (file system) para ler arquivos do sistema
+const trateErrors = require('./errors/functionsError');
 
 // process.argv → array ['node', 'script.js', ...args], índices 0 e 1 são fixos, úteis a partir do [2]
 const arquivePath = process.argv;
@@ -9,8 +10,7 @@ fs.readFile(link, 'utf-8', (err, data) => {
         if (err) throw err;
         countWords(data);
     } catch (err) {
-        if (err.code === 'ENOENT') console.log('error expected');
-        else console.log('another error occurred');
+        trateErrors(err);
     }
 }); 
 
