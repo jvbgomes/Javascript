@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import "dotenv/config";
+import mongoose, { mongo } from "mongoose";
 
 async function connectDB() {
     mongoose.connect(process.env.MONGODB_URI);
