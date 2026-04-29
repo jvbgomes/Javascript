@@ -1,5 +1,6 @@
 import express from 'express';
 import connectDB from './config/dbConnect.js';
+import routes from './routes/index.js';
 
 const connection = await connectDB();
 
@@ -12,31 +13,7 @@ connection.once("open", () => {
 });
 
 const app = express();
-app.use(express.json()); //Middleware para interpretar o corpo da requisição como JSON
-
-const books = [
-    {
-        id: 1,
-        title: "Lord of the Rings"
-    },
-    {
-        id: 2,
-        title: "The Hobbit"
-    }
-]
-
-function getBookById(id) {
-    return books.findIndex((book) => book.id === Number(id)); 
-}
-
-
-app.get("/'", (req, res) => {
-    res.status(200).send('Curse of Node.js');
-});
-
-app.get("/books", (req, res) => {
-    res.status(200).json(books);
-});
+routes(app);
 
 app.get("/books/:id", (req, res) => {
     const index = getBookById(req.params.id);
