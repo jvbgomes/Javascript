@@ -1,4 +1,15 @@
 import express from 'express';
+import connectDB from './config/dbConnect.js';
+
+const connection = await connectDB();
+
+connection.on("error", (err) => {
+    console.error("Connection error:", err);
+});
+
+connection.once("open", () => {
+    console.log("Database connected");
+});
 
 const app = express();
 app.use(express.json()); //Middleware para interpretar o corpo da requisição como JSON
