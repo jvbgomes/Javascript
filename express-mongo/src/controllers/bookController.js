@@ -54,6 +54,17 @@ class BookController {
         }
     };
 
+    static async getBooksByPublisher(req, res) {
+        const publisher = req.query.publisher;
+        try {
+            const booksByPublisher = await book.find({ publisher: publisher });
+            res.status(200).json(booksByPublisher);
+        } catch (error) {
+            res.status(500).json({ message: `${error.message} - failed to retrieve the query` });
+        }
+
+    };
+
 };
 
 export default BookController;
