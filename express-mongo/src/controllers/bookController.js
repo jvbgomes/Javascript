@@ -1,6 +1,7 @@
 import book from "../models/book.js";
+import { author } from "../models/author.js";
 
-class bookController {
+class BookController {
     //we use static methods cause we dont need to instantiate the class to use them, we can do bookController.getBooks()
     static async getBooks(req, res) {
         try {
@@ -21,16 +22,19 @@ class bookController {
         }
     };
 
-    static async createBook(req, res) {
+    static async createBook (req, res) {
+        const newBook = req.body;
         try {
-            const newBook = await book.create(req.body);
-            res.status(201).json({ message: "The book was added successfully", book: newBook });
+            const foundedAuthor = await author.findById(newBook.author);
+            const completeBook = { ...newBook, author: { ...foundedAuthor._doc }};
+            const createdBook = await book.create(completeBook);
+            res.status(201).json({ message: "The book was added successfully", book: createdBook });
         } catch (error) {
             res.status(500).json({ message: `${error.message} - failed to create the book` });
         }
     };
 
-    static async updateBook(req, res) {
+    static async updateBook (req, res) {
         try {
             const id = req.params.id;
             await book.findByIdAndUpdate(id, req.body);
@@ -52,4 +56,4 @@ class bookController {
 
 };
 
-export default bookController;
+export default BookController;
