@@ -1,19 +1,18 @@
 import mongoose from "mongoose";
+import BaseError from "../errors/baseError.js";
+import BadRequest from "../errors/badRequest.js";
+import ValidationError from "../errors/validationError.js";
 
 // eslint-disable-next-line no-unused-vars
 function errorHandler(err, req, res, next) {
-    if (err.status === 404) {
-        res.status(404).json({ message: err.message });
+    if (err instanceof BaseError) {
+        err.sendResponse(res);
     } else if (err instanceof mongoose.Error.CastError) {
-        res.status(400).json({ message: `Invalid value "${err.value}" for field "${err.path}".` });
+        new BadRequest(err).sendResponse(res);
     } else if (err instanceof mongoose.Error.ValidationError) {
-        const errorsMessages = Object.values(err.errors)
-        .map(err => err.message)
-        .join("; ");
-
-        res.status(400).json({ message: `The following validation errors occurred: ${errorsMessages}` });
+        new ValidationError(err).sendResponse(res);
     } else {
-        res.status(500).json({ message: "Internal server error." });
+        new BaseError().sendResponse(res);
     }
 }
 
