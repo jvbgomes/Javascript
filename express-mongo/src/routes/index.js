@@ -1,4 +1,3 @@
-import express from "express";
 import books from "./booksRoutes.js";
 import authors from "./authorsRoutes.js";
 
@@ -7,7 +6,7 @@ const routes = (app) => {
         res.status(200).send("Curse of Node.js");
     });
 
-    app.use(express.json(), books, authors); //Middleware para interpretar o corpo da requisição como JSON
+    app.use(books, authors);
 };
 
 export default routes;
