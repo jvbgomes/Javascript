@@ -2,67 +2,78 @@ import book from "../models/book.js";
 import { author } from "../models/author.js";
 
 class BookController {
-    //we use static methods cause we dont need to instantiate the class to use them, we can do bookController.getBooks()
-    static async getBooks(req, res) {
+    //we use static methods cause we dont need to instantiate the class to use them, we can do BookController.getBooks()
+    static async getBooks(req, res, next) {
         try {
-            const booklist = await book.find({}); //find come from mong., return a list of all books registered in the DB
-            res.status(200).json(booklist);
+            const books = await book.find({}); //find come from mong., return a list of all books registered in the DB
+            res.status(200).json(books);
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to retrieve the books` });
+            next(error);
         }
     };
 
-    static async getBookById(req, res) {
+    static async getBookById(req, res, next) {
         try {
             const id = req.params.id;
-            const booklist = await book.findById(id);
-            res.status(200).json(booklist);
+            const foundBook = await book.findById(id);
+
+            if (foundBook !== null) {
+                res.status(200).json(foundBook);
+            } else {
+                res.status(404).json({ message: "The ID of the book was not found." });
+            }
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to retrieve the book` });
+            next(error);
         }
     };
 
-    static async createBook (req, res) {
+    static async createBook (req, res, next) {
         const newBook = req.body;
         try {
-            const foundedAuthor = await author.findById(newBook.author);
-            const completeBook = { ...newBook, author: { ...foundedAuthor._doc }};
+            const foundAuthor = await author.findById(newBook.author);
+
+            if (foundAuthor === null) {
+                const err = new Error("Author not found.");
+                err.status = 404;
+                throw err;
+            }
+            
+            const completeBook = { ...newBook, author: { ...foundAuthor._doc }};
             const createdBook = await book.create(completeBook);
             res.status(201).json({ message: "The book was added successfully", book: createdBook });
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to create the book` });
+            next(error);
         }
     };
 
-    static async updateBook (req, res) {
+    static async updateBook (req, res, next) {
         try {
             const id = req.params.id;
             await book.findByIdAndUpdate(id, req.body);
             res.status(200).json({ message: "The book was updated successfully"});
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to update the book` });
+            next(error);
         }
     };
 
-    static async deleteBook(req, res) {
+    static async deleteBook(req, res, next) {
         try {
             const id = req.params.id;
             await book.findByIdAndDelete(id);
             res.status(200).json({ message: "The book was deleted successfully" });
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to delete the book` });
+            next(error);
         }
     };
 
-    static async getBooksByPublisher(req, res) {
+    static async getBooksByPublisher(req, res, next) {
         const publisher = req.query.publisher;
         try {
-            const booksByPublisher = await book.find({ publisher: publisher });
+            const booksByPublisher = await book.find({ publisher });
             res.status(200).json(booksByPublisher);
         } catch (error) {
-            res.status(500).json({ message: `${error.message} - failed to retrieve the query` });
+            next(error);
         }
-
     };
 
 };
