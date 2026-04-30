@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
-const authorSchema = new mongoose.Schema({
-    id: { type: mongoose.Schema.Types.ObjectId },
-    name: { type: String, required: true },
-    nacionality: { type: String },
-}, {versionKey: false});    
+const authorSchema = new mongoose.Schema(
+    {
+        name: { type: String, required: [true, "Name of author is required"] },
+        nacionality: { type: String },
+    }, 
+    {
+        versionKey: false
+    }
+);    
 
 const author = mongoose.model("Authors", authorSchema);
 
