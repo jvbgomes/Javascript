@@ -38,7 +38,11 @@ class AuthorController {
     static async updateAuthor(req, res, next) {
         try {
             const id = req.params.id;
-            await author.findByIdAndUpdate(id, req.body);
+            const updatedAuthor = await author.findByIdAndUpdate(id, req.body);
+
+            if (updatedAuthor === null) {
+                return next(new NotFound("The ID of the author was not found."));
+            }
             res.status(200).json({ message: "The author was updated successfully" });
         } catch (error) {
             next(error);
@@ -48,7 +52,12 @@ class AuthorController {
     static async deleteAuthor(req, res, next) {
         try {
             const id = req.params.id;
-            await author.findByIdAndDelete(id);
+            const deletedAuthor = await author.findByIdAndDelete(id);
+
+            if (deletedAuthor === null) {
+                return next(new NotFound("The ID of the author was not found."));
+            }
+
             res.status(200).json({ message: "The author was deleted successfully" });
         } catch (error) {
             next(error);
