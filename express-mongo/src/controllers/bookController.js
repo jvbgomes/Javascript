@@ -47,7 +47,12 @@ class BookController {
     static async updateBook(req, res, next) {
         try {
             const id = req.params.id;
-            await book.findByIdAndUpdate(id, req.body);
+            const updatedBook = await book.findByIdAndUpdate(id, req.body);
+
+            if (updatedBook === null) {
+                return next(new NotFound("The ID of the book was not found."));
+            }
+
             res.status(200).json({ message: "The book was updated successfully" });
         } catch (error) {
             next(error);
@@ -57,7 +62,12 @@ class BookController {
     static async deleteBook(req, res, next) {
         try {
             const id = req.params.id;
-            await book.findByIdAndDelete(id);
+            const deletedBook = await book.findByIdAndDelete(id);
+
+            if (deletedBook === null) {
+                return next(new NotFound("The ID of the book was not found."));
+            }
+
             res.status(200).json({ message: "The book was deleted successfully" });
         } catch (error) {
             next(error);
@@ -68,6 +78,11 @@ class BookController {
         const publisher = req.query.publisher;
         try {
             const booksByPublisher = await book.find({ publisher });
+
+            if (booksByPublisher.length === 0) {
+                return next(new NotFound("No books found for this publisher."));
+            }
+
             res.status(200).json(booksByPublisher);
         } catch (error) {
             next(error);
