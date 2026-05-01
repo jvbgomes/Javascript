@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./config/dbConnect.js";
 import errorHandler from "./middlewares/errorHandler.js";
+import NotFound from "./errors/notFound.js";
 import routes from "./routes/index.js";
 
 const connection = await connectDB();
@@ -15,6 +16,10 @@ connection.once("open", () => {
 const app = express();
 app.use(express.json());
 routes(app);
+
+app.use((req, res, next) => {
+    next(new NotFound());
+});
 
 app.use(errorHandler);
 
