@@ -2,8 +2,13 @@ import mongoose from "mongoose";
 
 const authorSchema = new mongoose.Schema(
     {
-        name: { type: String, required: [true, "Name of author is required"] },
-        nacionality: { type: String },
+        name: { 
+            type: String, 
+            required: [true, "Name of author is required"] 
+        },
+        nacionality: { 
+            type: String 
+        },
     }, 
     {
         versionKey: false
