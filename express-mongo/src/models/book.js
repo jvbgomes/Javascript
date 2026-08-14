@@ -10,7 +10,7 @@ const bookSchema = new mongoose.Schema({
         type: String, 
         required: [true, "Publisher of book is required"],
         enum: {
-            values: ["Casa do código", "Alura"],
+            values: ["Casa do código", "Alura", "Bloomsbury", "Garnier"],
             message: "The publisher {VALUE} provided is not a permmited value"
         }
     },

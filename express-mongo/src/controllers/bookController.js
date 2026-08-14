@@ -73,10 +73,16 @@ class BookController {
         }
     }
 
-    static async getBooksByPublisher(req, res, next) {
-        const publisher = req.query.publisher;
+    static async getBooksByFilter(req, res, next) {
+        const { publisher, title}  = req.query;
+        const regex = new RegExp(title, "i");
+        const search = {};
+
+        if (publisher) search.publisher = publisher;
+        if (title) search.title = regex;
+
         try {
-            const booksByPublisher = await book.find({ publisher });
+            const booksByPublisher = await book.find(search);
 
             if (booksByPublisher.length === 0) {
                 return next(new NotFound("No books found for this publisher."));
